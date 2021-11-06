@@ -5,37 +5,36 @@ import java.util.UnknownFormatConversionException;
 import java.util.Vector;
 
 public class LongestPalindromicSubstring {
-
-    // 主函数
-    public String longestPalindrome(String s) {
-        // 记录最长回文串
-        String res = "";
-
-        // 穷举以所有点（奇数一个点，偶数两个点）为中心的回文串
-        for (int i = 0; i < s.length(); i++) {
-            // 当回文串是奇数时，由一个中心点向两边扩散
-            String s1 = palindrome(s, i, s.length() % 2 == 0 ? i + 1 : i);
-            res = res.length() > s1.length() ? res : s1;
-
-        }
-
-        return res;
+    public static void main(String[] args) {
+        System.out.println(longestPalindrome("cbbd"));
     }
 
-    // 辅助函数：寻找回文串
-    private String palindrome(String s, int left, int right) {
-        // 在区间 [0, s.length() - 1] 中寻找回文串，防止下标越界
-        while (left >= 0 && right < s.length()) {
-            // 是回文串时，继续向两边扩散
-            if (s.charAt(left) == s.charAt(right)) {
-                left--;
-                right++;
-            } else {
-                break;
+    public static String longestPalindrome(String s) {
+        if (s.length() < 2) {
+            return s;
+        }
+        char[] chars = s.toCharArray();
+        String s1 = s.substring(0, 1);
+        for (int i = 0; i < chars.length; i++) {
+            for (int i1 = i + 1; i1 < chars.length; i1++) {
+                String substring = s.substring(i, i1);
+                if (enter(substring)) {
+                    if (s1.length() < substring.length()) {
+                        s1 = substring;
+                    }
+                }
             }
         }
+        return s1;
+    }
 
-        // 循环结束时的条件是 s.charAt(left) != s.charAt(right), 所以正确的区间为 [left + 1, right), 方法 substring(start, end) 区间是 [start, end), 不包含 end
-        return s.substring(left + 1, right);
+    public static boolean enter(String s) {
+        char[] chars = s.toCharArray();
+        for (int i = 0; i < chars.length / 2; i++) {
+            if (chars[i] != chars[chars.length - 1 - i]) {
+                return false;
+            }
+        }
+        return true;
     }
 }
