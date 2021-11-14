@@ -1,3 +1,5 @@
+package 五十;
+
 public class RotateImage48 {
     public static void main(String[] args) {
         int[][] ints = new int[3][3];

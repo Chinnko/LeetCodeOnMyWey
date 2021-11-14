@@ -1,4 +1,4 @@
-package com.chinnko;
+package 五十;
 
 public class TwoSum {
 

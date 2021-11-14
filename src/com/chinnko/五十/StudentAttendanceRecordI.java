@@ -1,3 +1,5 @@
+package 五十;
+
 import javax.print.DocFlavor;
 
 public class StudentAttendanceRecordI {

@@ -1,3 +1,5 @@
+package 五十;
+
 public class RemoveElement27 {
     public static void main(String[] args) {
 

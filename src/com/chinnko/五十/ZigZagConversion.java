@@ -1,3 +1,5 @@
+package 五十;
+
 import java.util.ArrayList;
 import java.util.Vector;
 

@@ -1,3 +1,5 @@
+package 五十;
+
 public class PalindromeNumber {
 
     public static void main(String[] args) {

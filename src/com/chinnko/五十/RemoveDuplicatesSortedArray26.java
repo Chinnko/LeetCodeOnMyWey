@@ -1,3 +1,5 @@
+package 五十;
+
 public class RemoveDuplicatesSortedArray26 {
     public static void main(String[] args) {
         removeDuplicates(new int[]{1,1,2});

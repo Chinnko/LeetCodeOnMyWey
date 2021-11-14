@@ -1,3 +1,5 @@
+package 五十;
+
 public class String2Integer {
     public static void main(String[] args) {
         System.out.println(myAtoi("  0000000000012345678"));
