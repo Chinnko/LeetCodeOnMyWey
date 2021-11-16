@@ -1,6 +1,5 @@
 package 五十;
 
-import java.util.Optional;
 
 public class LongestCommonPrefix {
     public static void main(String[] args) {

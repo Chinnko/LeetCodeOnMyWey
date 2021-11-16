@@ -1,10 +1,5 @@
 package 五十;
 
-import sun.jvm.hotspot.oops.CellTypeState;
-
-import java.util.HashMap;
-import java.util.UnknownFormatConversionException;
-import java.util.Vector;
 
 public class LongestPalindromicSubstring {
     public static void main(String[] args) {
