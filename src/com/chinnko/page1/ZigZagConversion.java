@@ -1,7 +1,6 @@
-package 五十;
+package page1;
 
 import java.util.ArrayList;
-import java.util.Vector;
 
 public class ZigZagConversion {
     public static void main(String[] args) {

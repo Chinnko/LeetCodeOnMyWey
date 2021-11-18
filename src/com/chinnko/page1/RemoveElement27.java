@@ -1,4 +1,4 @@
-package 五十;
+package page1;
 
 public class RemoveElement27 {
     public static void main(String[] args) {

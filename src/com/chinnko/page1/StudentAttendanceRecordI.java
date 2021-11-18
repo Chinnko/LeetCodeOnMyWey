@@ -1,6 +1,4 @@
-package 五十;
-
-import javax.print.DocFlavor;
+package page1;
 
 public class StudentAttendanceRecordI {
     public static void main(String[] args) {

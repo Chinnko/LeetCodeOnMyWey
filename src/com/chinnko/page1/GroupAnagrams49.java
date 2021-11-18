@@ -1,7 +1,4 @@
-package 五十;
-
-import com.sun.xml.internal.ws.util.StringUtils;
-import javafx.scene.text.Text;
+package page1;
 
 import java.util.*;
 

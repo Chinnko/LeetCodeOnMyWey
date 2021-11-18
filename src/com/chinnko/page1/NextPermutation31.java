@@ -1,6 +1,5 @@
-package 五十;
+package page1;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class NextPermutation31 {
