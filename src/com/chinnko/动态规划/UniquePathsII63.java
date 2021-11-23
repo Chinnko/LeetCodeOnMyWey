@@ -1,5 +1,8 @@
 package 动态规划;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class UniquePathsII63 {
     public static void main(String[] args) {
         int[][] ints = new int[3][2];
@@ -12,37 +15,30 @@ public class UniquePathsII63 {
     }
 
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
-        int x = obstacleGrid.length;
-        int y = obstacleGrid[0].length;
-        int[][] ints = new int[x][y];
-        if (obstacleGrid[x - 1][y - 1] == 1 || obstacleGrid[0][0] == 1)
-            return 0;
-        if (x > 1 && y > 1&& obstacleGrid[0][1] == 1 && obstacleGrid[1][0] == 1)
-            return 0;
-        for (int cx = 0; cx < x; cx++) {
-            for (int cy = 0; cy < y; cy++) {
-                if (cx == 0 || cy == 0) {
-                    if (cx == 0 && cy > 0 && obstacleGrid[cx][cy - 1] == 1) {
-                        ints[cx][cy] = 0;
-                        continue;
-                    }
-                    if (cy == 0 && cx > 0 && obstacleGrid[cx - 1][cy] == 1) {
-                        ints[cx][cy] = 0;
-                        continue;
-                    }
-                    if (obstacleGrid[cx][cy] != 1) {
-                        ints[cx][cy] = 1;
-                    }
-                } else {
-                    if (obstacleGrid[cx][cy] == 1) {
-                        ints[cx][cy] = 0;
-                        continue;
-                    }
-                    ints[cx][cy] = ints[cx - 1][cy] + ints[cx][cy - 1];
+        int[][] ints = new int[obstacleGrid.length][obstacleGrid[0].length];
+        for (int i = 0; i < ints.length; i++) {
+            int[] current = obstacleGrid[i];
+            for (int i1 = 0; i1 < current.length; i1++) {
+                int pos = current[i1];
+                if (pos == 1) {
+                    ints[i][i1] = 0;
+                    continue;
                 }
+                if (i == 0 && i1 == 0) {
+                    ints[i][i1] = 1;
+                    continue;
+                }
+                if (i == 0) {
+                    ints[i][i1] = i1 - 1 >= 0 && ints[i][i1 - 1] != 0 ? 1 : 0;
+                    continue;
+                }
+                if (i1 == 0) {
+                    ints[i][i1] = i - 1 >= 0 && ints[i - 1][i1] != 0 ? 1 : 0;
+                    continue;
+                }
+                ints[i][i1] = ints[i - 1][i1] + ints[i][i1 - 1];
             }
         }
-
-        return ints[x - 1][y - 1];
+        return ints[obstacleGrid.length - 1][obstacleGrid[0].length - 1];
     }
 }
