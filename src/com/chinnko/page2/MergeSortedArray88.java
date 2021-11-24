@@ -1,32 +1,27 @@
-package page2;
-
-import sun.security.provider.MD2;
+import java.util.Arrays;
 
 public class MergeSortedArray88 {
 
-
     public static void main(String[] args) {
-        new MergeSortedArray88().merge(new int[]{1}, 1, new int[]{}, 0);
+        new MergeSortedArray88().merge(new int[]{1, 2, 3, 0, 0, 0}, 3, new int[]{2, 5, 6}, 3);
     }
 
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        int m1p = 0, m2p = 0, ss = 0;
-        int[] copy = new int[m + n];
-//
-//        while (m1p != m-1 || m2p != n-1) {
-//            if (m1p == n) {
-//                ss = nums2[m2p++];
-//            } else if (m2p == m) {
-//                ss = nums1[m1p++];
-//            } else if (nums1[m1p] > nums2[m2p]) {
-//                ss = nums2[m2p++];
-//            } else {
-//                ss = nums1[m1p++];
-//            }
-//            copy[m1p + m2p - 1] = ss;
-//        }
-//        for (int i = 0; i < copy.length; i++) {
-//            nums1[i] = copy[i];
-//        }
+        int p1 = 0, p2 = 0;
+        int[] sorted = new int[m + n];
+        int cur;
+        while (p1 < m || p2 < n) { // 同时到达尾部才结束
+            if (p1 == m) {
+                cur = nums2[p2++];
+            } else if (p2 == n) {
+                cur = nums1[p1++];
+            } else if (nums1[p1] < nums2[p2]) {
+                cur = nums1[p1++];
+            } else {
+                cur = nums2[p2++];
+            }
+            sorted[p1 + p2 - 1] = cur;
+        }
+        System.arraycopy(sorted, 0, nums1, 0, sorted.length);
     }
 }
